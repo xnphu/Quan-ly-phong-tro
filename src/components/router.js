@@ -8,10 +8,10 @@ import DefaultRouter from './Default/DefaultRouter';
 
 export default [
   AuthRouter,
-  BillRouter,
-  ContractRouter,
+  // BillRouter,
+  // ContractRouter,
   RoomRouter,
-  ServiceRouter,
-  UserRouter,
+  // ServiceRouter,
+  // UserRouter,
   DefaultRouter,
 ];
