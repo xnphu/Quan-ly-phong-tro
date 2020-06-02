@@ -8,4 +8,5 @@ export const ERRORS = {
   NOTHING_CHANGED: createError.BadGateway('Không có gì thay đổi'),
   USER_EXIST: createError.BadRequest('Tài khoản đã tồn tại'),
   ROOM_EXIST: createError.BadRequest('Phòng đã tồn tại'),
+  ROOM_NOT_EXIST: createError.BadRequest('Phòng không tồn tại'),
 };

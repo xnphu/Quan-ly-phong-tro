@@ -15,6 +15,17 @@ export const createRoom = async ({ id, monthlyRent, status }) => {
   await dbUtil.query(sql, [id, monthlyRent, status]);
 };
 
+export const updateRoom = async ({ id, monthlyRent, status }) => {
+  const check = await checkRoomExist(id);
+  if (check) {
+    const roomData = { monthlyRent, status }
+    const sql = 'UPDATE rooms SET ? WHERE id = ?';
+    await dbUtil.query(sql, [roomData, id]);
+  } else {
+    return Promise.reject(ERRORS.ROOM_NOT_EXIST);
+  }
+};
+
 export const checkRoomExist = async (id) => {
   const sql = 'SELECT * FROM rooms WHERE id = ?';
   const result = await dbUtil.query(sql, [id]);
@@ -24,8 +35,8 @@ export const checkRoomExist = async (id) => {
   return false;
 };
 
-export const getRoomById = async (roomId) => {
+export const getRoomById = async (id) => {
   const sql = 'SELECT id, monthlyRent, status FROM rooms WHERE id = ?';
-  const room = await dbUtil.queryOne(sql, [roomId]);
+  const room = await dbUtil.queryOne(sql, [id]);
   return room;
 };

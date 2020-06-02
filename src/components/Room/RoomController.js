@@ -9,13 +9,20 @@ export const getAllRoom = async (req, res) => {
 };
 
 export const getRoomById = async (req, res) => {
-  const { roomId } = req.params;
-  const room = await dbAccess.getRoomById(roomId);
+  const { id } = req.params;
+  const room = await dbAccess.getRoomById(id);
   res.send(room);
 };
 
 export const createRoom = async (req, res) => {
   const { id, monthlyRent, status } = req.body;
-  const room = await dbAccess.createRoom(id, monthlyRent, status);
+  const room = await dbAccess.createRoom({ id, monthlyRent, status });
+  res.send(room);
+};
+
+export const updateRoom = async (req, res) => {
+  const { id } = req.params;
+  const { monthlyRent, status } = req.body;
+  const room = await dbAccess.updateRoom({ id, monthlyRent, status });
   res.send(room);
 };

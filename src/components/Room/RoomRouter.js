@@ -7,9 +7,9 @@ const router = Router();
 
 // route
 router.get('', throwAsNext(controller.getAllRoom));
-router.get('/:roomId', throwAsNext(controller.getRoomById));
+router.get('/:id', throwAsNext(controller.getRoomById));
 router.post('', throwAsNext(controller.createRoom));
-// router.put('/:id', updatePostValidator, throwAsNext(controller.updateRoom));
+router.put('/:id', throwAsNext(controller.updateRoom));
 // router.delete('/:id', throwAsNext(controller.deleteRoom));
 
 // export
