@@ -1,7 +1,5 @@
 /* eslint-disable no-unused-vars */
 import * as dbAccess from './RoomDAL';
-import { ERRORS } from '../../constant';
-import { hash } from '../../util/bcryptUtil';
 
 export const getAllRoom = async (req, res) => {
   const rooms = await dbAccess.getAllRoom();

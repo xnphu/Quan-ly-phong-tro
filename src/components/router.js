@@ -3,7 +3,7 @@ import BillRouter from './Bill/BillRouter';
 import ContractRouter from './Contract/ContractRouter';
 import RoomRouter from './Room/RoomRouter';
 import ServiceRouter from './Service/ServiceRouter';
-import UserRouter from './User/UserRouter';
+import CustomerRouter from './Customer/CustomerRouter';
 import DefaultRouter from './Default/DefaultRouter';
 
 export default [
@@ -12,6 +12,6 @@ export default [
   // ContractRouter,
   RoomRouter,
   // ServiceRouter,
-  // UserRouter,
+  CustomerRouter,
   DefaultRouter,
 ];
