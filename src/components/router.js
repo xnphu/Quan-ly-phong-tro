@@ -3,15 +3,17 @@ import BillRouter from './Bill/BillRouter';
 import ContractRouter from './Contract/ContractRouter';
 import RoomRouter from './Room/RoomRouter';
 import ServiceRouter from './Service/ServiceRouter';
+import UseServiceRouter from './Use_Service/ServiceRouter';
 import CustomerRouter from './Customer/CustomerRouter';
 import DefaultRouter from './Default/DefaultRouter';
 
 export default [
   AuthRouter,
-  // BillRouter,
-  // ContractRouter,
+  BillRouter,
+  ContractRouter,
   RoomRouter,
-  // ServiceRouter,
+  ServiceRouter,
+  UseServiceRouter,
   CustomerRouter,
   DefaultRouter,
 ];

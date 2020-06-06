@@ -24,3 +24,9 @@ export const updateRoom = async (req, res) => {
   const room = await dbAccess.updateRoom({ id, monthlyRent, status });
   res.send(room);
 };
+
+export const deleteRoom = async (req, res) => {
+  const { id } = req.params;
+  const room = await dbAccess.deleteRoom(id);
+  res.send(room);
+};

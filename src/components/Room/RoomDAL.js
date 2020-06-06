@@ -26,6 +26,14 @@ export const updateRoom = async ({ id, monthlyRent, status }) => {
   }
 };
 
+export const deleteRoom = async (id) => {
+  const sql = 'DELETE FROM rooms WHERE id = ? LIMIT 1';
+  const { affectedRows } = await dbUtil.query(sql, [id]);
+  if (affectedRows === 0) {
+    return Promise.reject(ERRORS.ROOM_NOT_EXIST);
+  }
+};
+
 export const checkRoomExist = async (id) => {
   const sql = 'SELECT * FROM rooms WHERE id = ?';
   const result = await dbUtil.query(sql, [id]);

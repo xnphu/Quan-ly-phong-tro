@@ -1,17 +1,23 @@
-// import { Router } from 'express';
-// import * as controller from './ServiceController';
-// import { loginValidator } from './validator';
-// import { throwAsNext, authMiddleware, requireLogin } from '../../middleware';
+import { Router } from 'express';
+import * as controller from './ServiceController';
+import { throwAsNext, authMiddleware, requireLogin } from '../../middleware';
 
-// const path = '/rooms';
-// const router = Router();
+const path = '/services';
+const router = Router();
 
-// // route
-// router.get('', throwAsNext(controller.getMe));
-// router.get('/:roomId', throwAsNext(controller.getMe));
-// router.post('', createPostValidator, throwAsNext(controller.createRoom));
-// router.put('/:id', updatePostValidator, throwAsNext(controller.updateRoom));
-// router.delete('/:id', throwAsNext(controller.deleteRoom));
+// route
+router.get('', throwAsNext(controller.getAllService));
+router.get('/:id', throwAsNext(controller.getServiceById));
+router.post('', throwAsNext(controller.createService));
+router.put('/:id', throwAsNext(controller.updateService));
+router.delete('/:id', throwAsNext(controller.deleteService));
 
-// // export
-// export default { path, router };
+router.get('/used', throwAsNext(controller.getAllUseService));
+router.get('/used/:id', throwAsNext(controller.getUseServiceById));
+router.get('/used/:roomID', throwAsNext(controller.getUseServiceByRoomId));
+router.post('/used', throwAsNext(controller.createUseService));
+router.put('/used/:id', throwAsNext(controller.updateUseService));
+router.delete('/used/:id', throwAsNext(controller.deleteUseService));
+
+// export
+export default { path, router };

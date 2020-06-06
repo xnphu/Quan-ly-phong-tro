@@ -1,54 +1,69 @@
-// import * as dbUtil from '../../util/databaseUtil';
-// import uuidv4 from 'uuid/v4';
-// import { ERRORS, REDIS, TOKEN } from '../../constant';
-// import redisUtil from '../../util/redisUtil';
-// import * as common from './common';
+import * as dbUtil from '../../util/databaseUtil';
+import { ERRORS } from '../../constant';
 
-// export const getUserByUsername = async (username) => {
-//   const sql = 'SELECT id,username,password FROM users WHERE username = ? LIMIT 1';
-//   return dbUtil.queryOne(sql, [username]);
-// };
+export const getAllContract = async () => {
+    const sql = 'SELECT id, customerID, dayStart, dayEnd, roomNumber, deposit, paidMoney, moreInformation FROM contracts';
+    return dbUtil.query(sql, []);
+};
 
-// export const signUp = async ({ username, passwordHash, name }) => {
-//   const check = await checkUserExist(username);
-//   if (check) {
-//     return Promise.reject(ERRORS.USER_EXIST);
-//   }
-//   const sql = 'INSERT INTO users(id,username, password, name) VALUES (?, ?, ?, ?)';
-//   const id = uuidv4();
-//   await dbUtil.query(sql, [id, username, passwordHash, name]);
-// };
+export const getContractById = async (id) => {
+    const sql = 'SELECT * FROM contracts WHERE id = ?';
+    const contract = await dbUtil.queryOne(sql, [id]);
+    return contract;
+};
 
-// export const checkUserExist = async (username) => {
-//   const sql = 'SELECT username FROM users WHERE username = ?';
-//   const result = await dbUtil.query(sql, [username]);
-//   if (result.length > 0) {
-//     return true;
-//   }
-//   return false;
-// };
+export const createContract = async ({ id, customerID, dayStart, dayEnd, roomNumber, deposit, paidMoney, moreInformation }) => {
+    const check = await checkContractExist(id);
+    const checkCustomer = await checkCustomerExist(customerID);
+    if (check) {
+        return Promise.reject(ERRORS.CONTRACT_EXIST);
+    }
+    if (checkCustomer) {
+        const sql = 'INSERT INTO contracts(id, customerID, dayStart, dayEnd, roomNumber, deposit, paidMoney, moreInformation) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+        await dbUtil.query(sql, [id, customerID, dayStart, dayEnd, roomNumber, deposit, paidMoney, moreInformation]);
+    } else {
+        return Promise.reject(ERRORS.CUSTOMER_NOT_EXIST);
+    }
+};
 
-// export const getUserById = async (userId) => {
-//   const sql = 'SELECT username, name, createdAt FROM users WHERE id = ?';
-//   const user = await dbUtil.queryOne(sql, [userId]);
-//   return user;
-// };
+export const updateContract = async ({ id, customerID, dayStart, dayEnd, roomNumber, deposit, paidMoney, moreInformation }) => {
+    const check = await checkContractExist(id);
+    const checkCustomer = await checkCustomerExist(customerID);
+    if (check) {
+        if (checkCustomer) {
+            const contractData = { customerID, dayStart, dayEnd, roomNumber, deposit, paidMoney, moreInformation };
+            const sql = 'UPDATE contracts SET ? WHERE id = ?';
+            await dbUtil.query(sql, [contractData, id]);
+        } else {
+            return Promise.reject(ERRORS.CUSTOMER_NOT_EXIST);
+        }
+    } else {
+        return Promise.reject(ERRORS.CONTRACT_NOT_EXIST);
+    }
+};
 
+export const deleteContract = async (id) => {
+    const sql = 'DELETE FROM contracts WHERE id = ? LIMIT 1';
+    const { affectedRows } = await dbUtil.query(sql, [id]);
+    if (affectedRows === 0) {
+        return Promise.reject(ERRORS.CONTRACT_NOT_EXIST);
+    }
+};
 
-// // export const getRefreshToken = async (token) => {
-// //   const refreshToken = uuidv4();
-// //   redisUtil.setAsync(`${REDIS.REFRESH_TOKEN_PREFIX}:${refreshToken}`, token, 'ex', TOKEN.REFRESH_TOKEN_EXPIRED).catch(() => { });
-// //   return refreshToken;
-// // };
+export const checkContractExist = async (id) => {
+    const sql = 'SELECT * FROM contracts WHERE id = ?';
+    const result = await dbUtil.query(sql, [id]);
+    if (result.length > 0) {
+        return true;
+    }
+    return false;
+};
 
-// // export const refreshToken = async (oldRefreshToken) => {
-// //   const oldToken = await redisUtil.getAsync(`${REDIS.REFRESH_TOKEN_PREFIX}:${oldRefreshToken}`);
-// //   const { id } = await common.getUserInfoFromToken(oldToken);
-// //   const newToken = await common.generateToken(id);
-// //   const newRefreshToken = uuidv4();
-// //   await Promise.all([
-// //     redisUtil.delAsync(`${REDIS.REFRESH_TOKEN_PREFIX}:${oldRefreshToken}`),
-// //     redisUtil.setAsync(`${REDIS.REFRESH_TOKEN_PREFIX}:${newRefreshToken}`, newToken, 'ex', TOKEN.REFRESH_TOKEN_EXPIRED),
-// //   ]);
-// //   return { token: newToken, refreshToken: newRefreshToken };
-// // };
+export const checkCustomerExist = async (id) => {
+    const sql = 'SELECT * FROM customers WHERE id = ?';
+    const result = await dbUtil.query(sql, [id]);
+    if (result.length > 0) {
+        return true;
+    }
+    return false;
+};

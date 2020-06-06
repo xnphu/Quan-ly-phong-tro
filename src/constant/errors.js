@@ -10,4 +10,10 @@ export const ERRORS = {
   CUSTOMER_NOT_EXIST: createError.BadRequest('Khách hàng không tồn tại'),
   ROOM_EXIST: createError.BadRequest('Phòng đã tồn tại'),
   ROOM_NOT_EXIST: createError.BadRequest('Phòng không tồn tại'),
+  SERVICE_EXIST: createError.BadRequest('Dịch vụ đã tồn tại'),
+  SERVICE_NOT_EXIST: createError.BadRequest('Dịch vụ không tồn tại'),
+  CONTRACT_EXIST: createError.BadRequest('Hợp đồng đã tồn tại'),
+  CONTRACT_NOT_EXIST: createError.BadRequest('Hợp đồng không tồn tại'),
+  BILL_EXIST: createError.BadRequest('Hóa đơn đã tồn tại'),
+  BILL_NOT_EXIST: createError.BadRequest('Hóa đơn không tồn tại'),
 };

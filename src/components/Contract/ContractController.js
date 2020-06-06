@@ -1,42 +1,34 @@
-// /* eslint-disable no-unused-vars */
-// import * as common from './common';
-// import * as dbAccess from './ContractDAL';
-// import { ERRORS } from '../../constant';
-// import { hash } from '../../util/bcryptUtil';
+/* eslint-disable no-unused-vars */
+import * as dbAccess from './ContractDAL';
+import { v4 as uuidv4 } from 'uuid';
 
-// export const getMe = async (req, res) => {
-//   const { userId } = req;
-//   const user = await dbAccess.getUserById(101);
-//   res.send(user);
-// };
+export const getAllContract = async (req, res) => {
+    const contracts = await dbAccess.getAllContract();
+    res.send(contracts);
+};
 
-// export const login = async (req, res) => {
-//   const { username, password } = req.body;
-//   const user = await dbAccess.getUserByUsername(username);
-//   if (user) {
-//     const passwordValid = await common.checkPassword(password, user.password);
-//     if (passwordValid) {
-//       const token = await common.generateToken(user.id);
-//       const refreshToken = await dbAccess.getRefreshToken(token);
-//       return res.json({ token, refreshToken });
-//     }
-//     return Promise.reject(ERRORS.INVALID_PASSWORD_ERROR);
-//   }
-//   return Promise.reject(ERRORS.USER_NOTFOUND_ERROR);
-// };
+export const getContractById = async (req, res) => {
+    const { id } = req.params;
+    const contract = await dbAccess.getContractById(id);
+    res.send(contract);
+};
 
-// export const signUp = async (req, res) => {
-//   const { username, password, name, rePassword } = req.body;
-//   if (password !== rePassword) {
-//     res.status(401).send('WRONG_REPASS');
-//     return;
-//   }
-//   const passwordHash = hash(password);
-//   await dbAccess.signUp({ username, passwordHash, name });
-//   res.ok();
-// };
+export const createContract = async (req, res) => {
+    const id = uuidv4();
+    const { customerID, dayStart, dayEnd, roomNumber, deposit, paidMoney, moreInformation } = req.body;
+    const contract = await dbAccess.createContract({ id, customerID, dayStart, dayEnd, roomNumber, deposit, paidMoney, moreInformation });
+    res.send(contract);
+};
 
-// export const refreshToken = async (req, res) => {
-//   const { refreshToken: oldRefreshToken } = req.body;
-//   res.json(await dbAccess.refreshToken(oldRefreshToken));
-// };
+export const updateContract = async (req, res) => {
+    const { id } = req.params;
+    const { customerID, dayStart, dayEnd, roomNumber, deposit, paidMoney, moreInformation } = req.body;
+    const contract = await dbAccess.updateContract({ id, customerID, dayStart, dayEnd, roomNumber, deposit, paidMoney, moreInformation });
+    res.send(contract);
+};
+
+export const deleteContract = async (req, res) => {
+    const { id } = req.params;
+    const contract = await dbAccess.deleteContract(id);
+    res.send(contract);
+};

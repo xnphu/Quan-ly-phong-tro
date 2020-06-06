@@ -44,7 +44,7 @@ export const checkRoomExist = async (id) => {
 };
 
 export const getCustomerByRoomId = async (id) => {
-    const sql = 'SELECT id, monthlyRent, status FROM rooms WHERE id = ?';
+    const sql = 'SELECT * FROM customers WHERE roomID = ?';
     const room = await dbUtil.queryOne(sql, [id]);
     return room;
 };
