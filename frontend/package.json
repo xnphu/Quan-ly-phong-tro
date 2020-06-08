@@ -12,6 +12,7 @@
     "fix-android1": "cd ./android && ./gradlew app:assembleDebug && ./gradlew installDebug"
   },
   "dependencies": {
+    "@babel/plugin-proposal-decorators": "^7.10.1",
     "react": "16.11.0",
     "react-native": "0.62.2",
     "react-native-modal-datetime-picker": "^8.7.1",

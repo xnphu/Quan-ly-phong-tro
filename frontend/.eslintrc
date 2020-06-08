@@ -1,0 +1,89 @@
+{
+    "env": {
+        "node": true,
+        "browser": true,
+        "es6": true
+    },
+    "parser": "babel-eslint",
+    "extends": "airbnb",
+    "rules": {
+        "react/jsx-filename-extension": [
+            "off"
+        ],
+        "linebreak-style": [
+            "off"
+        ],
+        "no-undef": [
+            "error"
+        ],
+        "react/sort-comp": [
+            "off"
+        ],
+        "react/prefer-stateless-function": [
+            "off"
+        ],
+        "semi": [
+            "off"
+        ],
+        "spaced-comment": [
+            "off"
+        ],
+        "comma-dangle": [
+            "error",
+            "never"
+        ],
+        "react/no-string-refs": [
+            "off"
+        ],
+        "react/no-array-index-key": [
+            "off"
+        ],
+        "no-use-before-define": "off",
+        "no-underscore-dangle": "off",
+        "react/jsx-no-bind": "off",
+        "camelcase": "off",
+        "global-require": "off",
+        "no-unused-expressions": "off",
+        "react/destructuring-assignment": "off",
+        "react/no-multi-comp": "off",
+        "no-nested-ternary": "off",
+        "import/prefer-default-export": "off",
+        "class-methods-use-this": "off",
+        "no-await-in-loop": "off",
+        "no-alert": "off",
+        "max-len": "off",
+        "import/no-cycle": "off",
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "error",
+        "arrow-parens": "off",
+        "object-curly-newline": "off"
+    },
+    "plugins": [
+        "react",
+        "jsx-a11y",
+        "import",
+        "flowtype",
+        "react-hooks"
+    ],
+    "globals": {
+        "it": "readonly",
+        "expect": "readonly",
+        "describe": "readonly",
+        "navigator": "readonly"
+    },
+    "parserOptions": {
+        "ecmaFeatures": {
+            "legacyDecorators": true
+        }
+    },
+    "settings": {
+        "import/resolver": {
+            "alias": [
+                [
+                    "QuanLyPhongTro/src",
+                    "./src"
+                ]
+            ]
+        }
+    }
+}
