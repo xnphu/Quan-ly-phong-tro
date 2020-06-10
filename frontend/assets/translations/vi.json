@@ -1,0 +1,240 @@
+{
+    "common": {
+        "OK": "OK",
+        "back": "Quay lại",
+        "readMore": "Xem thêm",
+        "readDetails": "Đọc tiếp",
+        "likesTime": "lượt thích",
+        "replies": "trả lời",
+        "follow": "Theo dõi",
+        "following": "Đang theo dõi",
+        "share": "Chia sẻ",
+        "close": "Đóng",
+        "reply": "Trả lời",
+        "login": "Đăng nhập",
+        "notification": "Thông báo",
+        "loginRequireMessage": "Bạn cần đăng nhập để thực hiện thao tác",
+        "saved": "Đã lưu",
+        "unsaved": "Đã bỏ lưu"
+    },
+    "error": {
+        "title": "Đã có lỗi",
+        "unknown": "Đã có lỗi xảy ra. Vui lòng thử lại.",
+        "requestTimeout": "Không có phản hồi từ hệ thống. Vui lòng kiểm tra kết nối và thử lại"
+    },
+    "authorSuggestion": {
+        "follows": "theo dõi",
+        "outstandingAuthor": "Ký giả nổi bật"
+    },
+    "categorySuggestion": {
+        "hotCategory": "Đề xuất chủ đề"
+    },
+    "followButton": {
+        "unfollowWarningTitle": "Bỏ theo dõi",
+        "unfollowWarningDescription": "Bạn có chắc chắn muốn bỏ theo dõi tác giả này?"
+    },
+    "followCategoryButton": {
+        "unfollowWarningTitle": "Bỏ theo dõi",
+        "unfollowWarningDescription": "Bạn có chắc chắn muốn bỏ theo dõi đề tài này?"
+    },
+    "selectCategories": {
+        "title": "Bạn muốn theo dõi\nđề tài tin tức nào?",
+        "subtitle": "Chọn những đề tài mà bạn quan tâm.\nCó thể bổ sung vào bất kỳ lúc nào.",
+        "goToNewsFeed": "Đi tới bảng tin",
+        "loadingTopics": "Đang tải danh sách đề tài..."
+    },
+    "login": {
+        "title": "Cập nhật những tin tức mới từng giây",
+        "or": "Hoặc",
+        "noAccount": "Bạn chưa có tài khoản?",
+        "username": "Số điện thoại",
+        "welcome": "Chào mừng bạn đến với bảng tin",
+        "password": "Mật khẩu",
+        "loginButtonTitle": "Đăng nhập",
+        "register": "Đăng ký",
+        "forgotPassword": "Quên mật khẩu?",
+        "loginWithFacebook": "Tiếp tục với facebook",
+        "loginSucceedsAlertTitle": "Thông báo",
+        "loginSucceedsAlertContent": "Bạn đã đăng nhập thành công",
+        "errorTitle": "Đã có lỗi",
+        "errorContent": "Vui lòng thử lại",
+        "forgotPasswordPhoneNotExistsErrorTitle": "Số điện thoại không tồn tại",
+        "forgotPasswordPhoneNotExistsErrorContent": "Bạn có muốn tạo tài khoản mới với số điện thoại này?",
+        "createAccount": "Tạo tài khoản",
+        "loggingIn": "Đang đăng nhập..."
+    },
+    "register": {
+        "title": "Đăng ký",
+        "subtitle": "Đăng ký để sử dụng nhiều tiện ích hơn",
+        "phoneInput": "Nhập số điện thoại",
+        "sendOTP": "Gửi mã xác minh"
+    },
+    "otp": {
+        "title": "Mã xác minh SMS",
+        "subtitle": "Mã xác minh được gửi tới số",
+        "resendIn": "Gửi lại sau",
+        "resend": "Gửi lại OTP"
+    },
+    "registerInfo": {
+        "title": "Thông tin",
+        "subtitle": "Vui lòng nhập họ tên đầy đủ và mật khẩu để đăng nhập vào tài khoản này.",
+        "fullName": "Họ tên đầy đủ",
+        "password": "Mật khẩu",
+        "finish": "Hoàn tất",
+        "updateInfoSucceedsAlertTitle": "Thông báo",
+        "updateInfoSucceedsAlertContent": "Bạn đã đăng ký thành công"
+    },
+    "forgotPassword": {
+        "title": "Mật khẩu mới",
+        "subtitle": "Vui lòng nhập mật khẩu mới và nhập lại một lần nữa để xác nhận",
+        "password": "Mật khẩu",
+        "confirmPassword": "Xác nhận mật khẩu",
+        "submit": "Đổi mật khẩu",
+        "passwordsNotMatchingErrorTitle": "Đã có lỗi",
+        "passwordsNotMatchingErrorContent": "Hai mật khẩu không khớp nhau, vui lòng kiểm tra lại",
+        "reportErrorTitle": "Báo cáo không thành công",
+        "reportErrorDescription": "Vui lòng thử lại",
+        "resetPasswordSucceedsAlertTitle": "Thông báo",
+        "resetPasswordSucceedsAlertContent": "Bạn đã đổi mật khẩu thành công"
+    },
+    "personal": {
+        "signInSignUp": "Đăng nhập / Đăng ký",
+        "pleaseLogin": "Hãy đăng nhập để có trải nghiệm tốt hơn",
+        "note": "Hãy đăng nhập để vote các nội dung yêu thích, chỉnh sửa các thông tin cá nhân, chia sẻ thông tin và hơn thế nữa",
+        "myFeeds": "CHỦ ĐỀ YÊU THÍCH",
+        "followers": "lượt theo dõi",
+        "bookmark": "Bookmark",
+        "activity": "Activity",
+        "appSettings": "Cài đặt ứng dụng",
+        "nightMode": "Chế độ ban đêm",
+        "feedStyle": "Chế độ xem",
+        "textSize": "Cỡ chữ",
+        "videoAutoplay": "Tự động chạy video",
+        "backgroundAudio": "Âm thanh nền",
+        "readOffline": "Đọc offline",
+        "supportAndLegal": "Trợ giúp và Điều khoản",
+        "logout": "Đăng xuất",
+        "logoutWarningTitle": "Chú ý",
+        "logoutWarningContent": "Bạn có chắc chắn muốn đăng xuất?",
+        "edit": "Chỉnh sửa",
+        "seeAndEdit": "Xem và sửa tài khoản của bạn",
+        "following": "đang theo dõi",
+        "anonymous": "Ẩn danh",
+        "posts": "Bài viết",
+        "myPosts": "Bài viết của tôi",
+        "comments": "Bình luận",
+        "noComments": "Bạn chưa có comment nào",
+        "save": "Đã lưu",
+        "about": "Giới thiệu"
+    },
+    "personalEdit": {
+        "title": "Chỉnh sửa",
+        "save": "Lưu",
+        "displayName": "Tên hiển thị",
+        "displayNamePlaceHolder": "Hiển thị trên trang cá nhân",
+        "displayNameNote": "Tên này sẽ được hiển thị tới người đọc trên trang cá nhân của bạn và không làm thay đổi tên đăng nhập",
+        "about": "Về tôi",
+        "aboutPlaceHolder": "Một vài mô tả về bạn",
+        "optional": "Tùy chọn",
+        "required": "Bắt buộc",
+        "updateSuccessfully": "Cập nhật thành công",
+        "updateFailed": "Cập nhật thất bại"
+    },
+    "newsDetails": {
+        "postBy": "Bài viết của",
+        "commentsFilterTitle": "Sắp xếp bình luận",
+        "newest": "Mới nhất",
+        "top": "Nổi bật nhất",
+        "enterComment": "Viết bình luận...",
+        "enterReply": "Viết trả lời...",
+        "loadingContent": "Đang tải nội dung bài viết...",
+        "replying": "Đang trả lời",
+        "retryReplying": "Không gửi được bình luận.\nẤn để thử lại.",
+        "seeReplies": "Xem {{repliesNumber}} câu trả lời"
+    },
+    "postInteract": {
+        "save": "Lưu bài viết",
+        "unsave": "Bỏ lưu bài viết",
+        "report": "Báo cáo bài viết",
+        "blockUser": "Chặn tác giả",
+        "hide": "Ẩn bài viết",
+        "reportReason": {
+            "nudity": "Nội dung khiêu dâm",
+            "violence": "Nội dung bạo lực hoặc phản cảm",
+            "incitingHatred": "Nội dung kích động thù địch hoặc lạm dụng",
+            "dangerous": "Hành động gây hại nguy hiểm",
+            "childAbuse": "Lạm dụng trẻ em",
+            "terrorism": "Quảng bá cho chủ nghĩa khủng bố",
+            "spam": "Spam hoặc gây hiểu nhầm",
+            "cancel": "Huỷ bỏ"
+        },
+        "reportConfirmTitle": "Xác nhận báo cáo",
+        "reportConfirmDescription": "Bạn có chắc chắn muốn báo cáo bài viết này với lý do",
+        "sendingReport": "Đang gửi...",
+        "confirmReport": "Báo cáo",
+        "reportSuccessTitle": "Đã báo cáo bài viết",
+        "reportSuccessDescription": "Đội ngũ của chúng tôi sẽ xem xét và phê duyệt lại các nội dung được báo cáo trong vòng 24h làm việc",
+        "reportErrorTitle": "Báo cáo không thành công",
+        "reportErrorDescription": "Vui lòng thử lại",
+        "sharing": "Đang tạo liên kết chia sẻ..."
+    },
+    "setting": {
+        "imagePicker": {
+            "title": "Chọn ảnh",
+            "cancelButtonTitle": "Hủy",
+            "takePhotoButtonTitle": "Chụp ảnh",
+            "chooseFromLibraryButtonTitle": "Chọn ảnh từ thư viện"
+        }
+    },
+    "commentInteract": {
+        "report": "Báo cáo bình luận",
+        "blockUser": "Chặn người dùng",
+        "hide": "Ẩn bình luận",
+        "edit": "Chỉnh sửa",
+        "delete": "Xoá",
+        "deleteConfirmTitle": "Xoá bình luận",
+        "deleteConfirmMessage": "Bạn có chắc chắn muốn xoá vĩnh viễn bình luận này khỏi AINews không?"
+    },
+    "categoryConfiguration": {
+        "description": "Tích để chọn/bỏ chọn các chủ đề yêu thích. Ấn giữ và kéo để thay đổi thứ tự các chủ đề",
+        "update": "Cập nhật",
+        "updateErrorTitle": "Cập nhật không thành công",
+        "updating": "Đang cập nhật...",
+        "updateAtLeastOneCategoryErrorDescription": "Bạn cần chọn ít nhất 01 chủ đề yêu thích",
+        "updateRequestErrorDescription": "Vui lòng thử lại"
+    },
+    "savedPosts": {
+        "savedItems": "Mục đã lưu",
+        "unsave": "Bỏ lưu bài viết",
+        "empty": "Bạn chưa lưu bài viết nào"
+    },
+    "photoListDetails": {
+        "save": "Tải ảnh về máy",
+        "saveImageErrorTitle": "Đã có lỗi",
+        "saveImageErrorContent": "Lưu ảnh không thành công, vui lòng thử lại"
+    },
+    "followings": {
+        "followAuthor": "Theo dõi ký giả",
+        "followings": "Đang theo dõi",
+        "explore": "Khám phá",
+        "notLogin": "Bạn chưa theo dõi ký giả nào\nHãy đăng nhập để thực hiện thao tác",
+        "login": "Đăng nhập",
+        "emptyFollowingList": "Bạn chưa theo dõi ký giả nào",
+        "emptySuggestionList": "Không tìm thấy ký giả nào"
+    },
+    "groupNewsFeed": {
+        "posts": "Bài viết",
+        "type": {
+            "createdTime": "Mới nhất",
+            "upVoteNumber": "Quan tâm nhất",
+            "commentNumber": "Nhiều bình luận nhất",
+            "hotScore": "Nóng nhất",
+            "downVoteNumber": "Bị ném đá nhất",
+            "trending": "Nổi bật nhất",
+            "recommend": "Phù hợp nhất"
+        }
+    },
+    "linkedDetails": {
+        "unavailable": "Bài viết không tồn tại"
+    }
+}

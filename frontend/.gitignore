@@ -54,6 +54,10 @@ buck-out/
 
 # Bundle artifact
 *.jsbundle
+yarn.lock
+package-lock.json
 
-# CocoaPods
-/ios/Pods/
+android/app/release/
+# */.vscode/settings.json
+# AINews.app.dSYM.zip
+# AINews.ipa

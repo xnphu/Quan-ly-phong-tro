@@ -21,6 +21,5 @@
   "explorer.confirmDelete": false,
   "editor.formatOnSave": true,
   "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
-  "typescript.format.insertSpaceBeforeFunctionParenthesis": true,
-  "java.configuration.updateBuildConfiguration": "disabled"
+  "typescript.format.insertSpaceBeforeFunctionParenthesis": true
 }

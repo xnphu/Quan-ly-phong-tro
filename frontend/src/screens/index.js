@@ -5,13 +5,14 @@
 import React from 'react';
 import { View, SafeAreaView } from 'react-native';
 import { Navigation } from 'react-native-navigation';
-//import Home from './Home';
+import Home from './Home';
 import EmptyView from './EmptyView';
+import NavigationContext from '../components/common/NavigationContext';
 import Welcome from './Welcome';
 
 type NavigationComponent = {
     name: string,
-    component: React.Component | React.PureComponent,
+    component: React.Component | React.PureComponent
 };
 
 const registerNavigationComponents = (store, provider) => {
@@ -33,105 +34,102 @@ const registerNavigationComponents = (store, provider) => {
 const registerScreenWithStatusBar = (
     { name, component }: NavigationComponent,
     store,
-    provider,
+    provider
 ) => {
     Navigation.registerComponent(
         name,
         () => withComponentId(withStatusBar(component, store, provider)),
-        () => component,
+        () => component
     );
 };
 
 const registerScreenWithoutStatusBar = (
     { name, component }: NavigationComponent,
     store,
-    provider,
+    provider
 ) => {
     Navigation.registerComponent(
         name,
         () => withComponentId(withoutStatusBar(component, store, provider)),
-        () => component,
+        () => component
     );
 };
 
 const registerStandaloneComponent = ({
     name,
-    component,
+    component
 }: NavigationComponent) => {
     Navigation.registerComponent(name, () => component);
 };
 
-function withStatusBar(
+function withStatusBar (
     Component: React.Component | React.PureComponent,
     store,
-    Provider,
+    Provider
 ) {
     class WrappedScreen extends React.Component {
-        render() {
+        render () {
             return (
-                // <Provider store={store}>
+                <Provider store={store}>
                     <SafeAreaView style={{ flex: 1 }}>
                         <Component {...this.props} />
                     </SafeAreaView>
-                // </Provider>
-            );
-        }
-    }
-    WrappedScreen.options = Component.options;
-    return WrappedScreen;
-}
-
-function withoutStatusBar(
-    Component: React.Component | React.PureComponent,
-    store,
-    Provider,
-) {
-    class WrappedScreen extends React.Component {
-        render() {
-            return (
-                // <Provider store={store}>
-                    <SafeAreaView style={{ flex: 1 }}>
-                        <Component {...this.props} />
-                    </SafeAreaView>
-                // </Provider>
-            );
-        }
-    }
-    WrappedScreen.options = Component.options;
-    return WrappedScreen;
-}
-
-function withComponentId(Component: React.Component | React.PureComponent) {
-    type Props = {
-        componentId: String
-    };
-
-
-    class WrappedScreen extends React.Component<Props> {
-        render() {
-            const { componentId } = this.props;
-
-            return (
-                <Provider value={{ componentId }}>
-                    <Component {...this.props} />
                 </Provider>
             );
         }
     }
+    WrappedScreen.options = Component.options;
+    return WrappedScreen;
+}
 
+function withoutStatusBar (
+    Component: React.Component | React.PureComponent,
+    store,
+    Provider
+) {
+    class WrappedScreen extends React.Component {
+        render () {
+            return (
+                <Provider store={store}>
+                    <SafeAreaView style={{ flex: 1 }}>
+                        <Component {...this.props} />
+                    </SafeAreaView>
+                </Provider>
+            );
+        }
+    }
+    WrappedScreen.options = Component.options;
+    return WrappedScreen;
+}
+
+function withComponentId (Component: React.Component | React.PureComponent) {
+    type Props = {
+        componentId: String
+    };
+
+    class WrappedScreen extends React.Component<Props> {
+        render () {
+            const { componentId } = this.props;
+            return (
+                <NavigationContext.Provider value={{ componentId }}>
+                    <Component {...this.props} />
+                </NavigationContext.Provider>
+            );
+        }
+    }
     WrappedScreen.options = Component.options;
     return WrappedScreen;
 }
 
 const withStatusBarScreens: [NavigationComponent] = [
-    // {
-    //     name: 'Home',
-    //     component: Home
-    // },
+    {
+        name: 'Home',
+        component: Home
+    },
     {
         name: 'Welcome',
         component: Welcome
-    },
+    }
 ];
 
 const withoutStatusBarScreens: [NavigationComponent] = [

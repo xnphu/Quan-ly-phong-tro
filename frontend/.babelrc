@@ -14,6 +14,12 @@
             {
                 "helpers": true
             }
+        ],
+        [
+            "@babel/plugin-transform-spread",
+            {
+                "loose": true
+            }
         ]
     ]
 }

@@ -2,29 +2,29 @@ import { Navigation, Layout } from 'react-native-navigation';
 
 import images from '../../assets/images';
 import colors from '../themes/colors';
-//import light from '../themes/modes/light';
+import light from '../themes/modes/light';
 
 import { store } from './index';
-//import { sleep } from '../utils/trivia';
+import { sleep } from '../utils/trivia';
 
 const ROOT_STACK_ID = 'root_stack';
+
 
 function startAppWithHomeScreen () {
   Navigation.setDefaultOptions({
     layout: {
       orientation: ['portrait'],
-      backgroundColor: 'white',
+      backgroundColor: 'white'
     },
     statusBar: {
       visible: true,
       style: 'dark',
-      backgroundColor: colors.white,
+      backgroundColor: 'white'
     },
     bottomTab: {
-      textColor: '#737373',
-      fontFamily: 'SFProText',
-      selectedTextColor: colors.blue4,
-      fontSize: 11,
+      fontFamily: 'SFProText-Bold',
+      selectedTextColor: colors.purple,
+      selectedIconColor: colors.purple,
     },
     bottomTabs: {
       titleDisplayMode: 'alwaysShow',
@@ -34,158 +34,109 @@ function startAppWithHomeScreen () {
 
   Navigation.setRoot({
     root: {
-      stack: {
-        id: ROOT_STACK_ID,
+      bottomTabs: {
         children: [
           {
-            bottomTabs: {
+            stack: {
               children: [
                 {
-                  stack: {
-                    children: [
-                      {
-                        component: {
-                          name: 'Welcome',
-                          options: {
-                            topBar: {
-                              visible: false,
-                              height: 0
-                            },
-                            bottomTab: {
-                              text: 'Xu hướng',
-                              icon: images.home,
-                              selectedIcon: images.homeSelected,
-                            },
-                            // statusBar: {
-                            //   visible: true,
-                            //   style: 'light',
-                            //   backgroundColor: colors.blue4,
-                            // },
-                          }
-                        }
-                      }
-                    ]
-                  }
-                },
-                {
-                  stack: {
-                    children: [
-                      {
-                        component: {
-                          name: 'EmptyView',
-                          options: {
-                            topBar: {
-                              visible: false,
-                              height: 0
-                            },
-                            bottomTab: {
-                              text: 'Cảnh báo',
-                              icon: images.manageAlert,
-                              selectedIcon: images.manageAlertSelected,
-                            }
-                          }
-                        }
-                      }
-                    ]
-                  }
-                },
-                {
-                  stack: {
-                    children: [
-                      {
-                        component: {
-                          name: 'EmptyView',
-                          options: {
-                            topBar: {
-                              visible: false,
-                              height: 0
-                            },
-                            bottomTab: {
-                              // text: 'Tạo Alert',
-                              icon: images.createAlert,
-                            }
-                          }
-                        }
-                      }
-                    ]
-                  }
-                },
-                {
-                  stack: {
-                    children: [
-                      {
-                        component: {
-                          name: 'EmptyView',
-                          options: {
-                            topBar: {
-                              visible: false,
-                              height: 0
-                            },
-                            bottomTab: {
-                              text: 'Lưu trữ',
-                              icon: images.manageBookmark,
-                              selectedIcon: images.bookmark,
-                            },
-                          },
-                        },
+                  component: {
+                    name: 'Home',
+                    options: {
+                      topBar: {
+                        visible: false,
+                        height: 0
                       },
-                    ],
-                  },
-                },
-                {
-                  stack: {
-                    children: [
-                      {
-                        component: {
-                          name: 'EmptyView',
-                          options: {
-                            topBar: {
-                              visible: false,
-                              height: 0
-                            },
-                            bottomTab: {
-                              text: 'Cá nhân',
-                              icon: images.personal,
-                              selectedIcon: images.personalSelected,
-                            },
-                          },
-                        },
-                      },
-                    ],
-                  },
-                },
-              ],
-            },
+                      bottomTab: {
+                        text: 'Tab 1',
+                        icon: images.home,
+                      }
+                    }
+                  }
+                }
+              ]
+            }
           },
-        ],
-      },
-    },
+          {
+            stack: {
+              children: [
+                {
+                  component: {
+                    name: 'EmptyView',
+                    options: {
+                      bottomTab: {
+                        text: 'Tab 2',
+                        icon: images.home,
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            stack: {
+              children: [
+                {
+                  component: {
+                    name: 'EmptyView',
+                    options: {
+                      bottomTab: {
+                        text: 'Tab 3',
+                        icon: images.home,
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            stack: {
+              children: [
+                {
+                  component: {
+                    name: 'Welcome',
+                    options: {
+                      bottomTab: {
+                        text: 'Tab 4',
+                        icon: images.home,
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
   });
 }
 
-// function setDefaultHeader (backgroundColor, titleColor) {
-//   return Navigation.setDefaultOptions({
-//     topBar: {
-//       background: {
-//         color: backgroundColor,
-//       },
-//       title: {
-//         color: titleColor,
-//       },
-//     },
-//     statusBar: {
-//       visible: true,
-//       style: 'dark',
-//       backgroundColor: 'white',
-//     },
-//   });
-// }
+function setDefaultHeader (backgroundColor, titleColor) {
+  return Navigation.setDefaultOptions({
+    topBar: {
+      background: {
+        color: backgroundColor
+      },
+      title: {
+        color: titleColor
+      }
+    },
+    statusBar: {
+      visible: true,
+      style: 'dark',
+      backgroundColor: 'white'
+    }
+  });
+}
 
 class Bootstrap {
   static isInStartupScreen = false;
 
   static async startApp () {
-    //setDefaultHeader(light.primary, light.secondary);
+    setDefaultHeader(light.primary, light.secondary);
     return startAppWithHomeScreen();
   }
 
@@ -216,9 +167,9 @@ class Bootstrap {
       component: {
         name: 'Loading',
         passProps: {
-          text,
-        },
-      },
+          text
+        }
+      }
     });
   }
 
