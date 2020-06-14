@@ -5,10 +5,11 @@ export default {
   sunflower:'#FFCF5C',
   sunflower1:'#FFDF92',
   sunflower2:'#FFEFC9',
-  blue:'#0084F4',
+  blue:'#3E64FF',
   blue1:'#4EAEFF',
   blue2:'#A6D6FF',
-  red:'#FF647C',
+  blue4:'#3E64FF',
+  red:'#FF3E65',
   red1:'#FF98A8',
   red2:'#FFCBD3',
   orange:'#F2994A',
@@ -18,9 +19,13 @@ export default {
   green1:'#2EFFC3',
   green2:'#96FFE1',
   black:'#151522',
+  black2:'#4D4D4D', //super dark
+  grey:'#F5F5F5',
   grey1:'#333333',
   grey2:'#666666',
   grey3:'#999999',
   grey4:'#E0E0E0',
+  grey5:'#FBFAFA', //super light grey
+  grey6:'#F5F5F5', //light grey
   white:'#FFFFFF',
-}
+};

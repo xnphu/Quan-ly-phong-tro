@@ -9,6 +9,30 @@ import { sleep } from '../utils/trivia';
 
 const ROOT_STACK_ID = 'root_stack';
 
+function startAppWithLoginScreen() {
+  Navigation.setDefaultOptions({
+    layout: {
+      orientation: ['portrait'],
+      backgroundColor: 'white'
+    },
+    statusBar: {
+      visible: true,
+      style: 'dark',
+      backgroundColor: 'white'
+    },
+    topBar: {
+      visible: false,
+      height: 0
+    }
+  });
+  Navigation.setRoot({
+    root: {
+      component: {
+        name: 'Login'
+      }
+    }
+  });
+}
 
 function startAppWithHomeScreen () {
   Navigation.setDefaultOptions({
@@ -62,10 +86,10 @@ function startAppWithHomeScreen () {
               children: [
                 {
                   component: {
-                    name: 'EmptyView',
+                    name: 'ManageRoom',
                     options: {
                       bottomTab: {
-                        text: 'Tab 2',
+                        text: 'Quản lý phòng',
                         icon: images.home,
                       }
                     }
@@ -136,24 +160,34 @@ class Bootstrap {
   static isInStartupScreen = false;
 
   static async startApp () {
-    setDefaultHeader(light.primary, light.secondary);
-    return startAppWithHomeScreen();
+    try {
+      setDefaultHeader(light.primary, light.secondary);
+      if (store?.getState()?.token?.token?.length == 0) {
+        Bootstrap.isInStartupScreen = false;
+        return startAppWithHomeScreen();
+      }
+      Bootstrap.isInStartupScreen = true;
+      return startAppWithLoginScreen();
+    } catch (error) {
+      Bootstrap.isInStartupScreen = true;
+      return startAppWithLoginScreen();
+    }
   }
 
-  static async push (layout: Layout) {
-    return Navigation.push(ROOT_STACK_ID, layout);
+  static async push (componentId: String, layout: Layout) {
+    return Navigation.push(componentId, layout);
   }
 
-  static async pop () {
-    return Navigation.pop(ROOT_STACK_ID);
+  static async pop (componentId: String) {
+    return Navigation.pop(componentId);
   }
 
   static async popTo (componentId: String) {
     return Navigation.popTo(componentId);
   }
 
-  static async popToRoot () {
-    return Navigation.popToRoot(ROOT_STACK_ID);
+  static async popToRoot (componentId: String) {
+    return Navigation.popToRoot(componentId);
   }
 
   static async showToast (layout: Layout, duration = 500) {

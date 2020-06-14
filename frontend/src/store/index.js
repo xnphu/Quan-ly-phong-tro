@@ -31,7 +31,7 @@ export default () => new Promise((resolve) => {
         compose(...enhancer)
     );
     // sagaMiddlewares.run(rootSaga);
-    // store.subscribe(() => console.log(store.getState()));
+    store.subscribe(() => console.log(store.getState()));
     persistStore(store, null, () => {
         resolve(store);
     });

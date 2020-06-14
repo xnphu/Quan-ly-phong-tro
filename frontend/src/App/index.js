@@ -54,7 +54,7 @@ async function handleAppStateChanged (nextAppState) {
 
 async function init () {
 
-    const store = await configStore();
+    store = await configStore();
     store.subscribe(handleSubscribe);
     registerNavigationComponents(store, Provider);
     setI18nConfig();

@@ -2,7 +2,7 @@ import { create } from 'apisauce';
 import qs from 'qs';
 
 export const API = create({
-  baseURL: 'https://api.bangtin.vn/v1'
+  baseURL: 'http://localhost:8080/'
 });
 
 export const API_V2 = create({

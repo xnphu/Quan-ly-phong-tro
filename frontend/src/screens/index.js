@@ -9,6 +9,8 @@ import Home from './Home';
 import EmptyView from './EmptyView';
 import NavigationContext from '../components/common/NavigationContext';
 import Welcome from './Welcome';
+import Login from './Login';
+import ManageRoom from './ManageRoom';
 
 type NavigationComponent = {
     name: string,
@@ -129,7 +131,15 @@ const withStatusBarScreens: [NavigationComponent] = [
     {
         name: 'Welcome',
         component: Welcome
-    }
+    },
+    {
+        name: 'Login',
+        component: Login
+    },
+    {
+        name: 'ManageRoom',
+        component: ManageRoom
+    },
 ];
 
 const withoutStatusBarScreens: [NavigationComponent] = [
