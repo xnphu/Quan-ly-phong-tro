@@ -162,7 +162,7 @@ class Bootstrap {
   static async startApp () {
     try {
       setDefaultHeader(light.primary, light.secondary);
-      if (store?.getState()?.token?.token?.length == 0) {
+      if (store?.getState()?.token?.token?.length > 0) {
         Bootstrap.isInStartupScreen = false;
         return startAppWithHomeScreen();
       }

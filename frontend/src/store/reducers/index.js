@@ -9,7 +9,7 @@ const config = {
     key: 'QuanLyPhongTro',
     timeout: 30000,
     storage: AsyncStorage,
-    // whitelist: ['tokenReducer', 'countReducer'],
+    whitelist: ['token'],
     // blacklist: ['form','tokenReducer']
 };
 

@@ -6,6 +6,8 @@ import { WINDOW_HEIGHT, WINDOW_WIDTH } from '../utils/trivia';
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        flexDirection: 'column', 
+        justifyContent: 'center',
         paddingHorizontal: 25,
         backgroundColor: colors.grey5,
     },
@@ -54,6 +56,7 @@ const styles = StyleSheet.create({
         fontSize: 14,
         lineHeight: 22,
         textAlign: 'center',
+        color: colors.white,
     },
     checkboxLabel: {
         marginHorizontal: 5,

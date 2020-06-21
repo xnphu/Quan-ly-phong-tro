@@ -5,22 +5,22 @@ import redisUtil from '../../util/redisUtil';
 import * as common from './common';
 
 export const getUserByUsername = async (username) => {
-  const sql = 'SELECT id,username,password FROM users WHERE username = ? LIMIT 1';
+  const sql = 'SELECT id,username,password FROM admin WHERE username = ? LIMIT 1';
   return dbUtil.queryOne(sql, [username]);
 };
 
-export const signUp = async ({ username, passwordHash, name }) => {
+export const signUp = async ({ username, passwordHash }) => {
   const check = await checkUserExist(username);
   if (check) {
     return Promise.reject(ERRORS.USER_EXIST);
   }
-  const sql = 'INSERT INTO users(id,username, password, name) VALUES (?, ?, ?, ?)';
+  const sql = 'INSERT INTO admin(id, username, password) VALUES (?, ?, ?)';
   const id = uuidv4();
-  await dbUtil.query(sql, [id, username, passwordHash, name]);
+  await dbUtil.query(sql, [id, username, passwordHash]);
 };
 
 export const checkUserExist = async (username) => {
-  const sql = 'SELECT username FROM users WHERE username = ?';
+  const sql = 'SELECT username FROM admin WHERE username = ?';
   const result = await dbUtil.query(sql, [username]);
   if (result.length > 0) {
     return true;
