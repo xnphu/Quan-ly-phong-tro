@@ -8,6 +8,7 @@ import { callSagaRequest, callSagaRequestWithErrorHandler } from '../../utils/Re
 import { login } from '../../store/actions/auth';
 import { updateToken } from '../../store/actions/token';
 import { useDispatch } from 'react-redux';
+import { API_URL } from '../../config';
 
 const Login = (props) => {
     const [username, setUsername] = useState('');
@@ -33,7 +34,27 @@ const Login = (props) => {
                 <TouchableOpacity
                     style={{ ...styles.button, backgroundColor: colors.blue4 }}
                     onPress={() => {
-                        fetch('http://localhost:8080/auth/login', {
+                        // const token = callSagaRequest(login, {
+                        //     username, password
+                        // })
+                        // if (token) {
+                        //     console.log('token', token);
+                        //     Alert.alert(
+                        //         'Thành công',
+                        //         `Đăng nhập thành công`,
+                        //         [
+                        //             {
+                        //                 text: 'OK',
+                        //                 onPress: async () => {
+                        //                     dispatch(updateToken(''));
+                        //                     Bootstrap.startApp();
+                        //                 }
+                        //             },
+                        //         ],
+                        //         { cancelable: false }
+                        //     );
+                        // }
+                        fetch(`${API_URL}/auth/login`, {
                             method: 'POST',
                             headers: {
                                 Accept: 'application/json',
@@ -60,7 +81,6 @@ const Login = (props) => {
                                         ],
                                         { cancelable: false }
                                     );
-
                                 }
                             })
                             .catch(err => console.log(err))

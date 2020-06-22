@@ -149,8 +149,11 @@ export const createRequestSaga = ({
       throw new RequestCancelledError();
     }
 
+    console.log("response",response);
+
     const { status, data, ok } = response;
     ret = data;
+    console.log("data", data);
     if (!ok) {
       throw new HTTPRequestError(status, data);
     }

@@ -1,4 +1,4 @@
-import { ACTION_UPDATE_TOKEN } from '../constants';
+import { ACTION_UPDATE_TOKEN, ACTION_LOGOUT } from '../constants';
 
 export function updateToken (token) {
   return {
@@ -6,5 +6,11 @@ export function updateToken (token) {
     payload: {
       token
     }
+  }
+}
+
+export function removeToken () {
+  return {
+    type: ACTION_LOGOUT
   }
 }

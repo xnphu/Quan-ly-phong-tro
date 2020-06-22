@@ -5602,7 +5602,7 @@ prompts@^2.0.1:
     kleur "^3.0.3"
     sisteransi "^1.0.4"
 
-prop-types@15.x.x, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@15.x.x, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -5711,6 +5711,13 @@ react-native-picker-select@^6.6.0:
   integrity sha512-dC+tJc4iv7gjOxXuc2R59rrAAZ/qg8k6HU2xRC65s1uhqflViUPBG1uaHqE/E2D62vntt9+u1qRGbkcYkqOx8g==
   dependencies:
     lodash.isequal "^4.5.0"
+
+react-native-super-grid@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/react-native-super-grid/-/react-native-super-grid-4.0.2.tgz#1d549b1919d4d99b669b5a00719c04c3d442c31b"
+  integrity sha512-EB/60LVoXev5VV2Jb5WlpcoMBqgUljG6LWwJpSvKxK09HAhEhE9ZO1wUbZUzNnr1nYFXXnSlz0zJSkA8VELaCA==
+  dependencies:
+    prop-types "^15.6.0"
 
 react-native-svg@^12.1.0:
   version "12.1.0"

@@ -7,8 +7,6 @@ import light from '../themes/modes/light';
 import { store } from './index';
 import { sleep } from '../utils/trivia';
 
-const ROOT_STACK_ID = 'root_stack';
-
 function startAppWithLoginScreen() {
   Navigation.setDefaultOptions({
     layout: {
@@ -120,11 +118,11 @@ function startAppWithHomeScreen () {
               children: [
                 {
                   component: {
-                    name: 'Welcome',
+                    name: 'UserProfile',
                     options: {
                       bottomTab: {
-                        text: 'Tab 4',
-                        icon: images.home,
+                        text: 'Tài khoản',
+                        icon: images.personal,
                       }
                     }
                   }

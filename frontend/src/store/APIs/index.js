@@ -1,8 +1,9 @@
 import { create } from 'apisauce';
 import qs from 'qs';
+import { API_URL } from '../../config';
 
 export const API = create({
-  baseURL: 'http://localhost:8080/'
+  baseURL: API_URL
 });
 
 export const API_V2 = create({
