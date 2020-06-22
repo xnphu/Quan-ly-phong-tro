@@ -34,26 +34,6 @@ const Login = (props) => {
                 <TouchableOpacity
                     style={{ ...styles.button, backgroundColor: colors.blue4 }}
                     onPress={() => {
-                        // const token = callSagaRequest(login, {
-                        //     username, password
-                        // })
-                        // if (token) {
-                        //     console.log('token', token);
-                        //     Alert.alert(
-                        //         'Thành công',
-                        //         `Đăng nhập thành công`,
-                        //         [
-                        //             {
-                        //                 text: 'OK',
-                        //                 onPress: async () => {
-                        //                     dispatch(updateToken(''));
-                        //                     Bootstrap.startApp();
-                        //                 }
-                        //             },
-                        //         ],
-                        //         { cancelable: false }
-                        //     );
-                        // }
                         fetch(`${API_URL}/auth/login`, {
                             method: 'POST',
                             headers: {
@@ -64,9 +44,10 @@ const Login = (props) => {
                                 username, password
                             })
                         })
-                            .then(response => response.json())
-                            .then(responseJson => {
-                                if (responseJson) {
+                            .then(async (response) => {
+                                if (response.status == 200) {
+                                    const responseJson = await response.json();
+                                    console.log(responseJson);
                                     Alert.alert(
                                         'Thành công',
                                         `Đăng nhập thành công`,
@@ -81,9 +62,22 @@ const Login = (props) => {
                                         ],
                                         { cancelable: false }
                                     );
+                                } else {
+                                    throw new Error();
                                 }
+                            })                           
+                            .catch(err => {
+                                Alert.alert(
+                                    'Thất bại',
+                                    `Tài khoản hoặc mật khẩu không đúng`,
+                                    [
+                                        {
+                                            text: 'OK',
+                                        },
+                                    ],
+                                    { cancelable: false }
+                                );
                             })
-                            .catch(err => console.log(err))
                     }}
                 >
                     <Text style={{ ...styles.buttonContent }}>Đăng nhập</Text>

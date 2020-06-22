@@ -70,7 +70,7 @@ function startAppWithHomeScreen () {
                         height: 0
                       },
                       bottomTab: {
-                        text: 'Tab 1',
+                        text: 'Trang chủ',
                         icon: images.home,
                       }
                     }

@@ -39,7 +39,6 @@ export const callSagaRequest = (sagaRequestFunction, ...params) => new Promise((
   store.dispatch(
     sagaRequestFunction(...params, (err, ret) => {
       if (!err) {
-        console.log("ret", ret);
         resolve(ret);
       }
       reject(err);

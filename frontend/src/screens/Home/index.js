@@ -5,17 +5,6 @@ import colors from '../../themes/colors';
 import { WINDOW_HEIGHT, WINDOW_WIDTH } from '../../utils/trivia';
 
 const Home = (props) => {
-    // useEffect(() => { 
-    //     // fetch()
-    // }, []);
-    // return (
-    //     <>
-    //         <Text style={styles.header}>Quản lý phòng</Text>
-    //         <View style={styles.container}>
-
-    //         </View>
-    //     </>
-    // );
     const [items, setItems] = useState([
         { name: 'Quản lý phòng', code: '#ff94e0' },
         { name: 'Quản lý khách hàng', code: '#2ecc71' },
