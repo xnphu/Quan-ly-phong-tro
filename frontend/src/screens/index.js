@@ -11,6 +11,10 @@ import NavigationContext from '../components/common/NavigationContext';
 import Welcome from './Welcome';
 import Login from './Login';
 import ManageRoom from './ManageRoom';
+import ManageBill from './ManageBill';
+import ManageContract from './ManageContract';
+import ManageCustomer from './ManageCustomer';
+import ManageService from './ManageService';
 import UserProfile from './UserProfile';
 
 type NavigationComponent = {
@@ -140,6 +144,22 @@ const withStatusBarScreens: [NavigationComponent] = [
     {
         name: 'ManageRoom',
         component: ManageRoom
+    },
+    {
+        name: 'ManageBill',
+        component: ManageBill
+    },
+    {
+        name: 'ManageContract',
+        component: ManageContract
+    },
+    {
+        name: 'ManageCustomer',
+        component: ManageCustomer
+    },
+    {
+        name: 'ManageService',
+        component: ManageService
     },
     {
         name: 'UserProfile',

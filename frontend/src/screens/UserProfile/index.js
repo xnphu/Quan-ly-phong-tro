@@ -14,31 +14,30 @@ const UserProfile = (props) => {
         // fetch()
     }, []);
     return (
-        <>
-            <Text style={styles.header}>Tài khoản</Text>
-            <View style={styles.container}>
-                <Text style={styles.label}>Chào, admin</Text>
-                <View style={{ marginVertical: 10 }}></View>
-                <View style={{ height: WINDOW_HEIGHT / 15 }}>
-                    <TouchableOpacity
-                        style={{ ...styles.button, backgroundColor: colors.red }} 
-                        onPress={() => {
-                            dispatch(removeToken())
-                            Bootstrap.startApp();
-                        }}                     
-                    >
-                        <Text style={{ ...styles.buttonContent }}>Đăng xuất</Text>
-                    </TouchableOpacity>
-                </View>
+        <View style={styles.container}>
+            <Text style={styles.label}>Chào, admin</Text>
+            <View style={{ marginVertical: 10 }}></View>
+            <View style={{ height: WINDOW_HEIGHT / 15 }}>
+                <TouchableOpacity
+                    style={{ ...styles.button, backgroundColor: colors.red }}
+                    onPress={() => {
+                        dispatch(removeToken())
+                        Bootstrap.startApp();
+                    }}
+                >
+                    <Text style={{ ...styles.buttonContent }}>Đăng xuất</Text>
+                </TouchableOpacity>
             </View>
-        </>
+        </View>
     );
 }
 
 UserProfile.options = () => ({
     topBar: {
-        visible: false,
-        height: 0
+        title: {
+            text: 'Tài khoản',
+            alignment: 'center'
+        }
     },
 });
 

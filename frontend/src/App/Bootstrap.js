@@ -32,7 +32,7 @@ function startAppWithLoginScreen() {
   });
 }
 
-function startAppWithHomeScreen () {
+function startAppWithHomeScreen() {
   Navigation.setDefaultOptions({
     layout: {
       orientation: ['portrait'],
@@ -65,10 +65,6 @@ function startAppWithHomeScreen () {
                   component: {
                     name: 'Home',
                     options: {
-                      topBar: {
-                        visible: false,
-                        height: 0
-                      },
                       bottomTab: {
                         text: 'Trang chủ',
                         icon: images.home,
@@ -101,10 +97,10 @@ function startAppWithHomeScreen () {
               children: [
                 {
                   component: {
-                    name: 'EmptyView',
+                    name: 'ManageCustomer',
                     options: {
                       bottomTab: {
-                        text: 'Tab 3',
+                        text: 'Khách hàng',
                         icon: images.home,
                       }
                     }
@@ -136,7 +132,7 @@ function startAppWithHomeScreen () {
   });
 }
 
-function setDefaultHeader (backgroundColor, titleColor) {
+function setDefaultHeader(backgroundColor, titleColor) {
   return Navigation.setDefaultOptions({
     topBar: {
       background: {
@@ -157,7 +153,7 @@ function setDefaultHeader (backgroundColor, titleColor) {
 class Bootstrap {
   static isInStartupScreen = false;
 
-  static async startApp () {
+  static async startApp() {
     try {
       setDefaultHeader(light.primary, light.secondary);
       if (store?.getState()?.token?.token?.length > 0) {
@@ -172,29 +168,29 @@ class Bootstrap {
     }
   }
 
-  static async push (componentId: String, layout: Layout) {
+  static async push(componentId: String, layout: Layout) {
     return Navigation.push(componentId, layout);
   }
 
-  static async pop (componentId: String) {
+  static async pop(componentId: String) {
     return Navigation.pop(componentId);
   }
 
-  static async popTo (componentId: String) {
+  static async popTo(componentId: String) {
     return Navigation.popTo(componentId);
   }
 
-  static async popToRoot (componentId: String) {
+  static async popToRoot(componentId: String) {
     return Navigation.popToRoot(componentId);
   }
 
-  static async showToast (layout: Layout, duration = 500) {
+  static async showToast(layout: Layout, duration = 500) {
     const componentId = await Navigation.showOverlay(layout);
     await sleep(duration);
     return Navigation.dismissOverlay(componentId);
   }
 
-  static async showLoadingOverlay (text: String) {
+  static async showLoadingOverlay(text: String) {
     return Navigation.showOverlay({
       component: {
         name: 'Loading',
@@ -205,7 +201,7 @@ class Bootstrap {
     });
   }
 
-  static async dismissLoadingOverlay (overlayId) {
+  static async dismissLoadingOverlay(overlayId) {
     return Navigation.dismissOverlay(overlayId);
   }
 }

@@ -9,13 +9,13 @@ import { callSagaRequest, callSagaRequestWithErrorHandler } from '../../utils/Re
 import { login } from '../../store/actions/auth';
 import { API_URL } from '../../config';
 
-const ManageRoom = (props) => {
-    const [rooms, setRooms] = useState();
+const ManageContract = (props) => {
+    const [contracts, setContracts] = useState();
     const dispatch = useDispatch();
-    const roomString = JSON.stringify(rooms);
+    const contractString = JSON.stringify(contracts);
 
     useEffect(() => {
-        fetch(`${API_URL}/rooms`, {
+        fetch(`${API_URL}/contracts`, {
             method: 'GET',
             headers: {
                 Accept: 'application/json',
@@ -26,45 +26,36 @@ const ManageRoom = (props) => {
                 if (response.status == 200) {
                     const responseJson = await response.json();
                     console.log(responseJson);
-                    setRooms(responseJson);
+                    setContracts(responseJson);
                 } else {
                     throw new Error();
                 }
             })
             .catch(err => {
-                Alert.alert(
-                    'Thất bại',
-                    `Lấy thông tin phòng không thành công`,
-                    [
-                        {
-                            text: 'OK',
-                        },
-                    ],
-                    { cancelable: false }
-                );
+                console.log(err);
             })
     }, []);
     return (
         <View style={styles.container}>
             {/* {
-                    rooms != undefined
-                    ? rooms.map((room, index) => (
-                        <Text key={index}>{room.id}</Text>
+                    contracts != undefined
+                    ? contracts.map((contract, index) => (
+                        <Text key={index}>{contract.id}</Text>
                     ))
-                    : <Text style={styles.label}>Chưa có dữ liệu của phòng</Text>               
+                    : <Text style={styles.label}>Chưa có dữ liệu của hợp đồng</Text>               
                 } */}
-            <Text style={styles.label}>{roomString}</Text>
+            <Text style={styles.label}>{contractString}</Text>
         </View>
     );
 }
 
-ManageRoom.options = () => ({
+ManageContract.options = () => ({
     topBar: {
         title: {
-            text: 'Quản lý phòng',
+            text: 'Quản lý hợp đồng',
             alignment: 'center'
         }
     },
 });
 
-export default ManageRoom;
+export default ManageContract;
