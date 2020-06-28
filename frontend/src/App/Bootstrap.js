@@ -92,23 +92,23 @@ function startAppWithHomeScreen() {
               ]
             }
           },
-          {
-            stack: {
-              children: [
-                {
-                  component: {
-                    name: 'ManageCustomer',
-                    options: {
-                      bottomTab: {
-                        text: 'Khách hàng',
-                        icon: images.home,
-                      }
-                    }
-                  }
-                }
-              ]
-            }
-          },
+          // {
+          //   stack: {
+          //     children: [
+          //       {
+          //         component: {
+          //           name: 'ManageCustomer',
+          //           options: {
+          //             bottomTab: {
+          //               text: 'Khách hàng',
+          //               icon: images.home,
+          //             }
+          //           }
+          //         }
+          //       }
+          //     ]
+          //   }
+          // },
           {
             stack: {
               children: [

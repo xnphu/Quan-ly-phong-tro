@@ -44,4 +44,5 @@ export default {
   manageBookmark: require('./manage_bookmark.png'),
   personal: require('./personal.png'),
   personalSelected: require('./personal_selected.png'),
+  empty: require('./empty.png'),
 };

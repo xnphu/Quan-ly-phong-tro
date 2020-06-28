@@ -13,6 +13,8 @@ export const createRoom = async ({ id, monthlyRent, status }) => {
   }
   const sql = 'INSERT INTO rooms(id, monthlyRent, status) VALUES (?, ?, ?)';
   await dbUtil.query(sql, [id, monthlyRent, status]);
+  const room = await getRoomById(id);
+  return room;
 };
 
 export const updateRoom = async ({ id, monthlyRent, status }) => {
@@ -21,6 +23,8 @@ export const updateRoom = async ({ id, monthlyRent, status }) => {
     const roomData = { monthlyRent, status }
     const sql = 'UPDATE rooms SET ? WHERE id = ?';
     await dbUtil.query(sql, [roomData, id]);
+    const room = await getRoomById(id);
+    return room;
   } else {
     return Promise.reject(ERRORS.ROOM_NOT_EXIST);
   }

@@ -8,7 +8,6 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column', 
         justifyContent: 'center',
-        paddingHorizontal: 25,
         backgroundColor: colors.grey5,
     },
     header: {
@@ -26,17 +25,17 @@ const styles = StyleSheet.create({
         fontFamily: 'SF Pro Text',
         fontStyle: 'normal',
         fontWeight: 'normal',
-        fontSize: 16,
+        fontSize: 14,
         lineHeight: 22,
     },
     textInput: {
         marginBottom: 15,
         borderWidth: 1,
         borderStyle: 'solid',
-        borderColor: colors.grey6,
+        borderColor: colors.grey4,
         borderRadius: 5,
         color: colors.black,
-        backgroundColor: colors.white,
+        backgroundColor: colors.grey6,
         height: WINDOW_HEIGHT / 17,
         textAlign: 'left',
         padding: 10,
@@ -44,7 +43,7 @@ const styles = StyleSheet.create({
     },
     button: {
         flexGrow: 1,
-        borderRadius: 10,
+        borderRadius: 5,
         height: WINDOW_HEIGHT / 17,
         alignItems: 'center',
         justifyContent: 'center',
@@ -76,6 +75,26 @@ const styles = StyleSheet.create({
         margin: 10,
         marginTop: 0,
         color: colors.blue4,
+    },
+    gridView: {
+        marginTop: 10,
+        flex: 1,
+    },
+    itemContainer: {
+        justifyContent: 'flex-end',
+        borderRadius: 5,
+        padding: 10,
+        height: 150,
+    },
+    itemName: {
+        fontSize: 16,
+        color: '#fff',
+        fontWeight: '600',
+    },
+    itemCode: {
+        fontWeight: '600',
+        fontSize: 12,
+        color: '#fff',
     },
 });
 

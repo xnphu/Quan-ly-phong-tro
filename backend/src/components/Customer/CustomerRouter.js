@@ -7,7 +7,8 @@ const router = Router();
 
 // route
 router.get('', throwAsNext(controller.getAllCustomer));
-router.get('/:id', throwAsNext(controller.getCustomerByRoomId));
+router.get('/:id', throwAsNext(controller.getCustomerById));
+router.get('/:id/room', throwAsNext(controller.getCustomerByRoomId));
 router.post('', throwAsNext(controller.createCustomer));
 router.put('/:id', throwAsNext(controller.updateCustomer));
 router.delete('/:id', throwAsNext(controller.deleteCustomer));

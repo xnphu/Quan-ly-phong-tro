@@ -10,12 +10,14 @@ import EmptyView from './EmptyView';
 import NavigationContext from '../components/common/NavigationContext';
 import Welcome from './Welcome';
 import Login from './Login';
-import ManageRoom from './ManageRoom';
-import ManageBill from './ManageBill';
-import ManageContract from './ManageContract';
-import ManageCustomer from './ManageCustomer';
-import ManageService from './ManageService';
+import ManageRoom from './ManageRoom/index';
+import ManageBill from './ManageBill/index';
+import ManageContract from './ManageContract/index';
+import ManageCustomer from './ManageCustomer/index';
+import ManageService from './ManageService/index';
 import UserProfile from './UserProfile';
+import DetailRoom from './ManageRoom/DetailRoom';
+import DetailCustomer from './ManageCustomer/DetailCustomer';
 
 type NavigationComponent = {
     name: string,
@@ -146,6 +148,10 @@ const withStatusBarScreens: [NavigationComponent] = [
         component: ManageRoom
     },
     {
+        name: 'DetailRoom',
+        component: DetailRoom
+    },
+    {
         name: 'ManageBill',
         component: ManageBill
     },
@@ -156,6 +162,10 @@ const withStatusBarScreens: [NavigationComponent] = [
     {
         name: 'ManageCustomer',
         component: ManageCustomer
+    },
+    {
+        name: 'DetailCustomer',
+        component: DetailCustomer
     },
     {
         name: 'ManageService',

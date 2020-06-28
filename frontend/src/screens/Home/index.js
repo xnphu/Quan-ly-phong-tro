@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, Button, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 import { FlatGrid } from 'react-native-super-grid';
 import colors from '../../themes/colors';
+import styles from '../../themes/styles';
 import { WINDOW_HEIGHT, WINDOW_WIDTH } from '../../utils/trivia';
 import Bootstrap from '../../App/Bootstrap';
 import { Navigation } from 'react-native-navigation';
@@ -32,6 +33,9 @@ const Home = (props) => {
                                         options: {
                                             topBar: {
                                                 visible: true,
+                                            },
+                                            bottomTabs: {
+                                                visible: false,
                                             }
                                         }
                                     }
@@ -53,46 +57,6 @@ Home.options = () => ({
             text: 'Trang chủ',
             alignment: 'center'
         }
-    },
-});
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'center',
-        paddingHorizontal: 25,
-        backgroundColor: colors.grey5,
-    },
-    header: {
-        textAlign: 'center',
-        backgroundColor: colors.white,
-        fontFamily: 'SF Pro Text',
-        fontStyle: 'normal',
-        fontWeight: 'bold',
-        fontSize: 17,
-        lineHeight: 40,
-        color: colors.black2,
-    },
-    gridView: {
-        marginTop: 10,
-        flex: 1,
-    },
-    itemContainer: {
-        justifyContent: 'flex-end',
-        borderRadius: 5,
-        padding: 10,
-        height: 150,
-    },
-    itemName: {
-        fontSize: 16,
-        color: '#fff',
-        fontWeight: '600',
-    },
-    itemCode: {
-        fontWeight: '600',
-        fontSize: 12,
-        color: '#fff',
     },
 });
 

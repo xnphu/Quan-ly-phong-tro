@@ -15,18 +15,18 @@ export const getRoomById = async (req, res) => {
 export const createRoom = async (req, res) => {
   const { id, monthlyRent, status } = req.body;
   const room = await dbAccess.createRoom({ id, monthlyRent, status });
-  res.send(room);
+  res.status(201).json(room);
 };
 
 export const updateRoom = async (req, res) => {
   const { id } = req.params;
   const { monthlyRent, status } = req.body;
   const room = await dbAccess.updateRoom({ id, monthlyRent, status });
-  res.send(room);
+  res.status(200).json(room);
 };
 
 export const deleteRoom = async (req, res) => {
   const { id } = req.params;
   const room = await dbAccess.deleteRoom(id);
-  res.send(room);
+  res.status(202).json({ success: 1 });
 };

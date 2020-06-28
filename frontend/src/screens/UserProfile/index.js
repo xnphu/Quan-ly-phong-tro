@@ -14,7 +14,7 @@ const UserProfile = (props) => {
         // fetch()
     }, []);
     return (
-        <View style={styles.container}>
+        <View style={{...styles.container, padding: 10}}>
             <Text style={styles.label}>Chào, admin</Text>
             <View style={{ marginVertical: 10 }}></View>
             <View style={{ height: WINDOW_HEIGHT / 15 }}>
