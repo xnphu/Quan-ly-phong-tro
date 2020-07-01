@@ -13,22 +13,28 @@ export const getContractById = async (req, res) => {
     res.send(contract);
 };
 
+export const getContractByRoomId = async (req, res) => {
+    const { id } = req.params;
+    const contract = await dbAccess.getContractByRoomId(id);
+    res.send(contract);
+};
+
 export const createContract = async (req, res) => {
     const id = uuidv4();
     const { customerID, dayStart, dayEnd, roomNumber, deposit, paidMoney, moreInformation } = req.body;
     const contract = await dbAccess.createContract({ id, customerID, dayStart, dayEnd, roomNumber, deposit, paidMoney, moreInformation });
-    res.send(contract);
+    res.status(201).json(contract);
 };
 
 export const updateContract = async (req, res) => {
     const { id } = req.params;
     const { customerID, dayStart, dayEnd, roomNumber, deposit, paidMoney, moreInformation } = req.body;
     const contract = await dbAccess.updateContract({ id, customerID, dayStart, dayEnd, roomNumber, deposit, paidMoney, moreInformation });
-    res.send(contract);
+    res.status(200).json(contract);
 };
 
 export const deleteContract = async (req, res) => {
     const { id } = req.params;
     const contract = await dbAccess.deleteContract(id);
-    res.send(contract);
+    res.status(202).json({ success: 1 });
 };

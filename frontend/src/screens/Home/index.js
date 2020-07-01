@@ -10,10 +10,10 @@ import { Navigation } from 'react-native-navigation';
 const Home = (props) => {
     const [items, setItems] = useState([
         { name: 'Quản lý phòng', code: '#ff94e0', componentId: 'ManageRoom' },
-        { name: 'Quản lý khách hàng', code: '#2ecc71', componentId: 'ManageCustomer' },
-        { name: 'Quản lý hợp đồng', code: '#3498db', componentId: 'ManageContract' },
-        { name: 'Quản lý hóa đơn', code: '#9b59b6', componentId: 'ManageBill' },
-        { name: 'Quản lý dịch vụ', code: '#34495e', componentId: 'ManageService' },
+        // { name: 'Quản lý khách hàng', code: '#2ecc71', componentId: 'ManageCustomer' },
+        // { name: 'Quản lý hợp đồng', code: '#3498db', componentId: 'ManageContract' },
+        { name: 'Quản lý hóa đơn', code: '#2ecc71', componentId: 'ManageBill' },
+        { name: 'Quản lý dịch vụ', code: '#3498db', componentId: 'ManageService' },
     ]);
 
     return (

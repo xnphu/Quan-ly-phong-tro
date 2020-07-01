@@ -8,7 +8,7 @@ const router = Router();
 // route
 router.get('/', throwAsNext(controller.getAllUseService));
 router.get('/:id', throwAsNext(controller.getUseServiceById));
-//router.get('/:roomID', throwAsNext(controller.getUseServiceByRoomId));
+router.get('/:roomID/room', throwAsNext(controller.getUseServiceByRoomId));
 router.post('', throwAsNext(controller.createUseService));
 router.put('/:id', throwAsNext(controller.updateUseService));
 router.delete('/:id', throwAsNext(controller.deleteUseService));

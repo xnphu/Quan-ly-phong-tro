@@ -8,6 +8,7 @@ const router = Router();
 // route
 router.get('', throwAsNext(controller.getAllBill));
 router.get('/:id', throwAsNext(controller.getBillById));
+router.get('/:id/room', throwAsNext(controller.getBillByRoomId));
 router.post('', throwAsNext(controller.createBill));
 router.put('/:id', throwAsNext(controller.updateBill));
 router.delete('/:id', throwAsNext(controller.deleteBill));

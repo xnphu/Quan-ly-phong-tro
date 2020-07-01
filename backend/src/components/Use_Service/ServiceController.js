@@ -23,18 +23,18 @@ export const createUseService = async (req, res) => {
     const id = uuidv4();
     const { serviceID, roomID, dayUseService, unit } = req.body;
     const service = await dbAccess.createUseService({ id, serviceID, roomID, dayUseService, unit });
-    res.send(service);
+    res.status(201).json(service);
 };
 
 export const updateUseService = async (req, res) => {
     const { id } = req.params;
     const { serviceID, roomID, dayUseService, unit } = req.body;
     const service = await dbAccess.updateUseService({ id, serviceID, roomID, dayUseService, unit });
-    res.send(service);
+    res.status(200).json(service);
 };
 
 export const deleteUseService = async (req, res) => {
     const { id } = req.params;
     const service = await dbAccess.deleteUseService(id);
-    res.send(service);
+    res.status(202).json({ success: 1 });
 };

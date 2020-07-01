@@ -12,6 +12,12 @@ export const getBillById = async (id) => {
     return bill;
 };
 
+export const getBillByRoomId = async (id) => {
+    const sql = 'SELECT * FROM bills WHERE roomID = ?';
+    const bill = await dbUtil.query(sql, [id]);
+    return bill;
+};
+
 export const createBill = async ({ id, roomID, numberOfMonth, sumOfMoney, createdAt }) => {
     const check = await checkBillExist(id);
     const checkRoom = await checkRoomExist(roomID);
@@ -21,6 +27,8 @@ export const createBill = async ({ id, roomID, numberOfMonth, sumOfMoney, create
     if (checkRoom) {
         const sql = 'INSERT INTO bills(id, roomID, numberOfMonth, sumOfMoney, createdAt) VALUES (?, ?, ?, ?, ?)';
         await dbUtil.query(sql, [id, roomID, numberOfMonth, sumOfMoney, createdAt]);
+        const bill = await getBillById(id);
+        return bill;
     } else {
         return Promise.reject(ERRORS.ROOM_NOT_EXIST);
     }
@@ -34,6 +42,8 @@ export const updateBill = async ({ id, roomID, numberOfMonth, sumOfMoney, create
             const billData = { roomID, numberOfMonth, sumOfMoney, createdAt };
             const sql = 'UPDATE bills SET ? WHERE id = ?';
             await dbUtil.query(sql, [billData, id]);
+            const bill = await getBillById(id);
+            return bill;
         } else {
             return Promise.reject(ERRORS.ROOM_NOT_EXIST);
         }

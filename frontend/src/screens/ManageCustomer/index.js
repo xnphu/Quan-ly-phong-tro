@@ -4,14 +4,11 @@ import Bootstrap from '../../App/Bootstrap';
 import colors from '../../themes/colors';
 import styles from '../../themes/styles';
 import { WINDOW_HEIGHT, WINDOW_WIDTH } from '../../utils/trivia';
-import { useDispatch } from 'react-redux';
-import { callSagaRequest, callSagaRequestWithErrorHandler } from '../../utils/RequestHandler';
-import { login } from '../../store/actions/auth';
 import { API_URL } from '../../config';
+import AddCustomer from './AddCustomer';
 
 const ManageCustomer = (props) => {
     const [customers, setCustomers] = useState();
-    const dispatch = useDispatch();
     const customerString = JSON.stringify(customers);
 
     useEffect(() => {
@@ -36,7 +33,8 @@ const ManageCustomer = (props) => {
             })
     }, []);
     return (
-        <View style={styles.container}>
+        <View style={{...styles.container, justifyContent: 'flex-start'}}>
+            <AddCustomer />
             {/* {
                     customers != undefined
                     ? customers.map((customer, index) => (

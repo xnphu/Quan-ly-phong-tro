@@ -12,6 +12,15 @@ export const getContractById = async (id) => {
     return contract;
 };
 
+export const getContractByRoomId = async (id) => {
+    const sql = 'SELECT * FROM contracts WHERE roomNumber = ?';
+    const contract = await dbUtil.queryOne(sql, [id]);
+    if (contract == undefined) {
+        return {};
+    }
+    else return contract;
+};
+
 export const createContract = async ({ id, customerID, dayStart, dayEnd, roomNumber, deposit, paidMoney, moreInformation }) => {
     const check = await checkContractExist(id);
     const checkCustomer = await checkCustomerExist(customerID);
@@ -21,6 +30,8 @@ export const createContract = async ({ id, customerID, dayStart, dayEnd, roomNum
     if (checkCustomer) {
         const sql = 'INSERT INTO contracts(id, customerID, dayStart, dayEnd, roomNumber, deposit, paidMoney, moreInformation) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
         await dbUtil.query(sql, [id, customerID, dayStart, dayEnd, roomNumber, deposit, paidMoney, moreInformation]);
+        const contract = await getContractById(id);
+        return contract;
     } else {
         return Promise.reject(ERRORS.CUSTOMER_NOT_EXIST);
     }
@@ -34,6 +45,8 @@ export const updateContract = async ({ id, customerID, dayStart, dayEnd, roomNum
             const contractData = { customerID, dayStart, dayEnd, roomNumber, deposit, paidMoney, moreInformation };
             const sql = 'UPDATE contracts SET ? WHERE id = ?';
             await dbUtil.query(sql, [contractData, id]);
+            const contract = await getContractById(id);
+            return contract;
         } else {
             return Promise.reject(ERRORS.CUSTOMER_NOT_EXIST);
         }

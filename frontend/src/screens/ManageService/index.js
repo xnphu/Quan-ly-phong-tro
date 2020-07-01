@@ -10,7 +10,7 @@ import { login } from '../../store/actions/auth';
 import { API_URL } from '../../config';
 
 const ManageService = (props) => {
-    const [services, setServices] = useState();
+    const [services, setServices] = useState([]);
     const dispatch = useDispatch();
     const serviceString = JSON.stringify(services);
 
@@ -36,15 +36,20 @@ const ManageService = (props) => {
             })
     }, []);
     return (
-        <View style={styles.container}>
-            {/* {
-                    services != undefined
-                    ? services.map((service, index) => (
-                        <Text key={index}>{service.id}</Text>
-                    ))
-                    : <Text style={styles.label}>Chưa có dữ liệu của dịch vụ</Text>               
-                } */}
-            <Text style={styles.label}>{serviceString}</Text>
+        <View style={{ ...styles.container, justifyContent: 'flex-start' }}>
+            <ScrollView style={{ padding: 10 }}>
+                <Text>Thông tin các dịch vụ</Text>
+                {
+                    services.length > 0
+                        ? services.map((service, index) => (
+                            <>
+                                <Text key={index}>{service.id}. {service.name}</Text>
+                                <Text>{'    '}Giá tiền mỗi đơn vị sử dụng: {service.pricePerUnit} VNĐ</Text>
+                            </>
+                        ))
+                        : <Text style={styles.label}>Chưa có dữ liệu của dịch vụ</Text>
+                }
+            </ScrollView>
         </View>
     );
 }

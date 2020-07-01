@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TextInput, StyleSheet, ScrollView, TouchableOpacity, Alert, Modal, InteractionManager } from 'react-native';
+import { View, Text, TextInput, StyleSheet, ScrollView, TouchableOpacity, Alert, Modal } from 'react-native';
 import Bootstrap from '../../App/Bootstrap';
 import colors from '../../themes/colors';
 import styles from '../../themes/styles';
@@ -32,7 +32,7 @@ const BasicInfo = (props) => {
                 <AntDesignIcon style={{ paddingTop: 7 }} name='ellipsis1' size={20} onPress={() => setModalMenuVisible(true)} />
             </View>
             <Text>Phòng: {roomId}</Text>
-            <Text>Giá thuê: {monthlyRent}</Text>
+            <Text>Giá thuê: {monthlyRent} VNĐ</Text>
             <Text>
                 Trạng thái:{' '}
                 {

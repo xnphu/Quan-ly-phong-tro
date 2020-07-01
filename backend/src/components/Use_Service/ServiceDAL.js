@@ -13,8 +13,13 @@ export const getUseServiceById = async (id) => {
 };
 
 export const getUseServiceByRoomId = async (id) => {
-    const sql = 'SELECT * FROM use_services WHERE roomID = ?';
-    const service = await dbUtil.queryOne(sql, [id]);
+    const sql = `SELECT us.id, us.serviceID, us.roomID, us.dayUseService, us.unit,
+    s.name "serviceName", s.pricePerUnit
+    FROM use_services us 
+    INNER JOIN services s ON us.serviceID = s.id
+    WHERE us.roomID = ?
+    `;
+    const service = await dbUtil.query(sql, [id]);
     return service;
 };
 
@@ -29,6 +34,8 @@ export const createUseService = async ({ id, serviceID, roomID, dayUseService, u
         if (checkRoom) {
             const sql = 'INSERT INTO use_services(id, serviceID, roomID, dayUseService, unit) VALUES (?, ?, ?, ?, ?)';
             await dbUtil.query(sql, [id, serviceID, roomID, dayUseService, unit]);
+            const service = await getUseServiceById(id);
+            return service;
         } else {
             return Promise.reject(ERRORS.ROOM_NOT_EXIST);
         }
@@ -47,6 +54,8 @@ export const updateUseService = async ({ id, serviceID, roomID, dayUseService, u
                 const serviceData = { serviceID, roomID, dayUseService, unit };
                 const sql = 'UPDATE use_services SET ? WHERE id = ?';
                 await dbUtil.query(sql, [serviceData, id]);
+                const service = await getUseServiceById(id);
+                return service;
             } else {
                 return Promise.reject(ERRORS.ROOM_NOT_EXIST);
             }

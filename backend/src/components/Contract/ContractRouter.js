@@ -8,6 +8,7 @@ const router = Router();
 // route
 router.get('', throwAsNext(controller.getAllContract));
 router.get('/:id', throwAsNext(controller.getContractById));
+router.get('/:id/room', throwAsNext(controller.getContractByRoomId));
 router.post('', throwAsNext(controller.createContract));
 router.put('/:id', throwAsNext(controller.updateContract));
 router.delete('/:id', throwAsNext(controller.deleteContract));

@@ -19,6 +19,8 @@ export const createService = async ({ id, name, pricePerUnit }) => {
     }
     const sql = 'INSERT INTO services(id, name, pricePerUnit) VALUES (?, ?, ?)';
     await dbUtil.query(sql, [id, name, pricePerUnit]);
+    const service = await getServiceById(id);
+    return service;
 };
 
 export const updateService = async ({ id, name, pricePerUnit }) => {
@@ -27,6 +29,8 @@ export const updateService = async ({ id, name, pricePerUnit }) => {
         const serviceData = { name, pricePerUnit };
         const sql = 'UPDATE services SET ? WHERE id = ?';
         await dbUtil.query(sql, [serviceData, id]);
+        const service = await getServiceById(id);
+        return service;
     } else {
         return Promise.reject(ERRORS.SERVICE_NOT_EXIST);
     }
@@ -53,8 +57,13 @@ export const getUseServiceById = async (id) => {
 };
 
 export const getUseServiceByRoomId = async (id) => {
-    const sql = 'SELECT * FROM use_services WHERE roomID = ?';
-    const service = await dbUtil.queryOne(sql, [id]);
+    const sql = `SELECT us.id, us.serviceID, us.roomID, us.dayUseService, us.unit,
+    s.name "serviceName", s.pricePerUnit
+    FROM use_services us 
+    INNER JOIN services s ON us.serviceID = s.id
+    WHERE us.roomID = ?
+    `;
+    const service = await dbUtil.query(sql, [id]);
     return service;
 };
 
